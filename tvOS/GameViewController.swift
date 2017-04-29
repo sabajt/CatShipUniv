@@ -12,24 +12,26 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
+    var gameScene: SKScene?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = GameScene.newGameScene()
-        
-        // Present the scene
-        let skView = self.view as! SKView
-        skView.presentScene(scene)
-        
-        skView.ignoresSiblingOrder = true
-        
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+        startScene()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
+    func startScene() {
+        guard
+            let view = self.view as? SKView,
+            let scene = SKScene(fileNamed: "GameScene") as? GameScene else {
+                return
+        }
+        
+        gameScene = scene
+        //scene.resetDelegate = self
+        //pressHandler = gameScene as? PressHandler
+        scene.scaleMode = .aspectFill
+        let transition = SKTransition.fade(withDuration: 1.0)
+        view.presentScene(scene, transition: transition)
     }
-
 }

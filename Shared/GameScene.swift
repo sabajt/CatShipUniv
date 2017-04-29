@@ -7,11 +7,6 @@
 //
 
 import SpriteKit
-#if os(watchOS)
-    import WatchKit
-    // SKColor typealias does not seem to be exposed on watchOS SpriteKit
-    typealias SKColor = UIColor
-#endif
 
 class GameScene: SKScene {
     
@@ -51,30 +46,12 @@ class GameScene: SKScene {
             spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
-            
-            #if os(watchOS)
-                // For watch we just periodically create one of these and let it spin
-                // For other platforms we let user touch/mouse events create these
-                spinnyNode.position = CGPoint(x: 0.0, y: 0.0)
-                spinnyNode.strokeColor = SKColor.red
-                self.run(SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 2.0),
-                                                                   SKAction.run({
-                                                                       let n = spinnyNode.copy() as! SKShapeNode
-                                                                       self.addChild(n)
-                                                                   })])))
-            #endif
         }
     }
     
-    #if os(watchOS)
-    override func sceneDidLoad() {
-        self.setUpScene()
-    }
-    #else
     override func didMove(to view: SKView) {
         self.setUpScene()
     }
-    #endif
 
     func makeSpinny(at pos: CGPoint, color: SKColor) {
         if let spinny = self.spinnyNode?.copy() as! SKShapeNode? {
