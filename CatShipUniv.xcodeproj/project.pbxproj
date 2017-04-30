@@ -29,6 +29,31 @@
 		33253E7D1EB528C900FC259F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33253E451EB528C800FC259F /* Assets.xcassets */; };
 		33253E7E1EB528C900FC259F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33253E451EB528C800FC259F /* Assets.xcassets */; };
 		33253E7F1EB528C900FC259F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33253E451EB528C800FC259F /* Assets.xcassets */; };
+		33253E8F1EB6539E00FC259F /* CGHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33253E8C1EB6539E00FC259F /* CGHelpers.swift */; };
+		33253E901EB6539E00FC259F /* CollectionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33253E8D1EB6539E00FC259F /* CollectionHelpers.swift */; };
+		33253E911EB6539E00FC259F /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33253E8E1EB6539E00FC259F /* Random.swift */; };
+		33253E931EB6544000FC259F /* SpaceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33253E921EB6544000FC259F /* SpaceScene.swift */; };
+		33253E941EB6544000FC259F /* SpaceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33253E921EB6544000FC259F /* SpaceScene.swift */; };
+		33253E951EB6544000FC259F /* SpaceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33253E921EB6544000FC259F /* SpaceScene.swift */; };
+		33253E961EB6552B00FC259F /* CGHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33253E8C1EB6539E00FC259F /* CGHelpers.swift */; };
+		33253E971EB6552B00FC259F /* CollectionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33253E8D1EB6539E00FC259F /* CollectionHelpers.swift */; };
+		33253E981EB6552B00FC259F /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33253E8E1EB6539E00FC259F /* Random.swift */; };
+		33253E991EB6552C00FC259F /* CGHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33253E8C1EB6539E00FC259F /* CGHelpers.swift */; };
+		33253E9A1EB6552C00FC259F /* CollectionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33253E8D1EB6539E00FC259F /* CollectionHelpers.swift */; };
+		33253E9B1EB6552C00FC259F /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33253E8E1EB6539E00FC259F /* Random.swift */; };
+		33E395A31EB6562E00A31E35 /* SpaceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A11EB6562E00A31E35 /* SpaceScene.sks */; };
+		33E395AA1EB660A700A31E35 /* supermeow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A61EB660A700A31E35 /* supermeow.wav */; };
+		33E395AB1EB660A700A31E35 /* supermeow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A61EB660A700A31E35 /* supermeow.wav */; };
+		33E395AC1EB660A700A31E35 /* supermeow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A61EB660A700A31E35 /* supermeow.wav */; };
+		33E395AD1EB660A700A31E35 /* space.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A71EB660A700A31E35 /* space.mp3 */; };
+		33E395AE1EB660A700A31E35 /* space.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A71EB660A700A31E35 /* space.mp3 */; };
+		33E395AF1EB660A700A31E35 /* space.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A71EB660A700A31E35 /* space.mp3 */; };
+		33E395B01EB660A700A31E35 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A81EB660A700A31E35 /* pop.wav */; };
+		33E395B11EB660A700A31E35 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A81EB660A700A31E35 /* pop.wav */; };
+		33E395B21EB660A700A31E35 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A81EB660A700A31E35 /* pop.wav */; };
+		33E395B31EB660A700A31E35 /* speed.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A91EB660A700A31E35 /* speed.wav */; };
+		33E395B41EB660A700A31E35 /* speed.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A91EB660A700A31E35 /* speed.wav */; };
+		33E395B51EB660A700A31E35 /* speed.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33E395A91EB660A700A31E35 /* speed.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +77,15 @@
 		33253E6E1EB528C900FC259F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		33253E711EB528C900FC259F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33253E731EB528C900FC259F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33253E8C1EB6539E00FC259F /* CGHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGHelpers.swift; sourceTree = "<group>"; };
+		33253E8D1EB6539E00FC259F /* CollectionHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHelpers.swift; sourceTree = "<group>"; };
+		33253E8E1EB6539E00FC259F /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		33253E921EB6544000FC259F /* SpaceScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceScene.swift; sourceTree = "<group>"; };
+		33E395A11EB6562E00A31E35 /* SpaceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = SpaceScene.sks; path = ../Shared/SpaceScene.sks; sourceTree = "<group>"; };
+		33E395A61EB660A700A31E35 /* supermeow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = supermeow.wav; sourceTree = "<group>"; };
+		33E395A71EB660A700A31E35 /* space.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = space.mp3; sourceTree = "<group>"; };
+		33E395A81EB660A700A31E35 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
+		33E395A91EB660A700A31E35 /* speed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = speed.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +127,13 @@
 		33253E411EB528C800FC259F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				33253E421EB528C800FC259F /* Actions.sks */,
-				33253E431EB528C800FC259F /* GameScene.sks */,
-				33253E441EB528C800FC259F /* GameScene.swift */,
+				33E395A51EB6607A00A31E35 /* Sounds */,
 				33253E451EB528C800FC259F /* Assets.xcassets */,
+				33253E8B1EB6539E00FC259F /* Utilities */,
+				33253E921EB6544000FC259F /* SpaceScene.swift */,
+				33253E441EB528C800FC259F /* GameScene.swift */,
+				33253E431EB528C800FC259F /* GameScene.sks */,
+				33253E421EB528C800FC259F /* Actions.sks */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -128,6 +165,7 @@
 			children = (
 				33253E5E1EB528C900FC259F /* AppDelegate.swift */,
 				33253E601EB528C900FC259F /* GameViewController.swift */,
+				33E395A11EB6562E00A31E35 /* SpaceScene.sks */,
 				33253E621EB528C900FC259F /* Main.storyboard */,
 				33253E651EB528C900FC259F /* Info.plist */,
 			);
@@ -143,6 +181,27 @@
 				33253E731EB528C900FC259F /* Info.plist */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		33253E8B1EB6539E00FC259F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				33253E8C1EB6539E00FC259F /* CGHelpers.swift */,
+				33253E8D1EB6539E00FC259F /* CollectionHelpers.swift */,
+				33253E8E1EB6539E00FC259F /* Random.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		33E395A51EB6607A00A31E35 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				33E395A61EB660A700A31E35 /* supermeow.wav */,
+				33E395A71EB660A700A31E35 /* space.mp3 */,
+				33E395A81EB660A700A31E35 /* pop.wav */,
+				33E395A91EB660A700A31E35 /* speed.wav */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,9 +311,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				33253E771EB528C900FC259F /* GameScene.sks in Resources */,
+				33E395B31EB660A700A31E35 /* speed.wav in Resources */,
 				33253E531EB528C800FC259F /* Main.storyboard in Resources */,
+				33E395B01EB660A700A31E35 /* pop.wav in Resources */,
 				33253E741EB528C900FC259F /* Actions.sks in Resources */,
+				33E395AD1EB660A700A31E35 /* space.mp3 in Resources */,
 				33253E561EB528C800FC259F /* LaunchScreen.storyboard in Resources */,
+				33E395AA1EB660A700A31E35 /* supermeow.wav in Resources */,
 				33253E7D1EB528C900FC259F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,8 +327,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				33253E641EB528C900FC259F /* Main.storyboard in Resources */,
+				33E395B41EB660A700A31E35 /* speed.wav in Resources */,
 				33253E781EB528C900FC259F /* GameScene.sks in Resources */,
+				33E395B11EB660A700A31E35 /* pop.wav in Resources */,
 				33253E7E1EB528C900FC259F /* Assets.xcassets in Resources */,
+				33E395AE1EB660A700A31E35 /* space.mp3 in Resources */,
+				33E395A31EB6562E00A31E35 /* SpaceScene.sks in Resources */,
+				33E395AB1EB660A700A31E35 /* supermeow.wav in Resources */,
 				33253E751EB528C900FC259F /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,8 +343,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				33253E721EB528C900FC259F /* Main.storyboard in Resources */,
+				33E395AF1EB660A700A31E35 /* space.mp3 in Resources */,
 				33253E791EB528C900FC259F /* GameScene.sks in Resources */,
+				33E395B21EB660A700A31E35 /* pop.wav in Resources */,
 				33253E7F1EB528C900FC259F /* Assets.xcassets in Resources */,
+				33E395AC1EB660A700A31E35 /* supermeow.wav in Resources */,
+				33E395B51EB660A700A31E35 /* speed.wav in Resources */,
 				33253E761EB528C900FC259F /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,9 +360,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33253E901EB6539E00FC259F /* CollectionHelpers.swift in Sources */,
+				33253E931EB6544000FC259F /* SpaceScene.swift in Sources */,
 				33253E7A1EB528C900FC259F /* GameScene.swift in Sources */,
+				33253E911EB6539E00FC259F /* Random.swift in Sources */,
 				33253E501EB528C800FC259F /* GameViewController.swift in Sources */,
 				33253E4E1EB528C800FC259F /* AppDelegate.swift in Sources */,
+				33253E8F1EB6539E00FC259F /* CGHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,8 +375,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				33253E7B1EB528C900FC259F /* GameScene.swift in Sources */,
+				33253E941EB6544000FC259F /* SpaceScene.swift in Sources */,
+				33253E961EB6552B00FC259F /* CGHelpers.swift in Sources */,
 				33253E611EB528C900FC259F /* GameViewController.swift in Sources */,
 				33253E5F1EB528C900FC259F /* AppDelegate.swift in Sources */,
+				33253E971EB6552B00FC259F /* CollectionHelpers.swift in Sources */,
+				33253E981EB6552B00FC259F /* Random.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,8 +389,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				33253E7C1EB528C900FC259F /* GameScene.swift in Sources */,
+				33253E951EB6544000FC259F /* SpaceScene.swift in Sources */,
+				33253E991EB6552C00FC259F /* CGHelpers.swift in Sources */,
 				33253E6F1EB528C900FC259F /* GameViewController.swift in Sources */,
 				33253E6D1EB528C900FC259F /* AppDelegate.swift in Sources */,
+				33253E9A1EB6552C00FC259F /* CollectionHelpers.swift in Sources */,
+				33253E9B1EB6552C00FC259F /* Random.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +643,7 @@
 				33253E841EB528C900FC259F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33253E851EB528C900FC259F /* Build configuration list for PBXNativeTarget "tvOS" */ = {
 			isa = XCConfigurationList;
@@ -567,6 +652,7 @@
 				33253E871EB528C900FC259F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33253E881EB528C900FC259F /* Build configuration list for PBXNativeTarget "macOS" */ = {
 			isa = XCConfigurationList;
@@ -575,6 +661,7 @@
 				33253E8A1EB528C900FC259F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
