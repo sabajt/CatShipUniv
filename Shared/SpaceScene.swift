@@ -189,11 +189,9 @@ class SpaceScene: SKScene {
     
     lazy var fireball: SKSpriteNode = { [weak self] in
         let s = SKSpriteNode(imageNamed: "fireball")
-        s.anchorPoint = CGPoint(x: 0.0, y: 0.8)
-        s.zRotation -= 0.2
         s.setScale(2.0)
         s.alpha = 0.0
-        s.position = s.position.add(point: CGPoint(x: -80, y: 0))
+        s.anchorPoint = CGPoint(x: 0.5, y: 0.85)
         return s
     }()
     
@@ -872,7 +870,13 @@ class SpaceScene: SKScene {
     }
     
     func rotateBlimp(deltaLocation: CGPoint) {
-        let rotationFactor = (deltaLocation.x * 0.003) * -1.0
+        #if os(iOS)
+            let rotationFactor = (deltaLocation.x * 0.01) * -1.0
+        #endif
+        #if os(tvOS)
+            let rotationFactor = (deltaLocation.x * 0.003) * -1.0
+        #endif
+        
         blimp.zRotation.add(rotationFactor)
         blimp.zRotation = normalized(radians: blimp.zRotation)
     }
