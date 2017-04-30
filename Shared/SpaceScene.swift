@@ -64,7 +64,15 @@ class SpaceScene: SKScene {
     
     lazy var speedLabel: SKLabelNode = {
         let label = SKLabelNode(text: "")
-        label.fontSize = 80.0
+        
+        #if os(tvOS)
+            label.fontSize = 80.0
+        #endif
+        
+        #if os(iOS)
+            label.fontSize = 30.0
+        #endif
+        
         label.fontColor = UIColor.white
         return label
     }()
@@ -73,7 +81,12 @@ class SpaceScene: SKScene {
         speedLabel.text = "\(self.mps)  MPS"
         guard let cellSize = cellSize() else { return }
         let x = (-cellSize.width * 0.48) + (speedLabel.frame.size.width * 0.5)
-        let y = (cellSize.height * 0.40) - (speedLabel.frame.size.height * 0.5)
+        #if os(tvOS)
+            let y = (cellSize.height * 0.40) - (speedLabel.frame.size.height * 0.5)
+        #endif
+        #if os(iOS)
+            let y = (cellSize.height * 0.5) - (speedLabel.frame.size.height * 0.5 + 15)
+        #endif
         speedLabel.position = CGPoint(x: x, y: y)
     }
     
@@ -148,10 +161,16 @@ class SpaceScene: SKScene {
     }
     
     var bodyMaxRadius: CGFloat {
-        if let h = cellSize()?.height {
-            return (h * 0.5) - 40
+        guard let s = cellSize() else {
+            return 0.0
         }
-        return 0
+        let r = CGFloat.minimum(s.width, s.height) * 0.5
+        #if os(iOS)
+            return r - 5
+        #endif
+        #if os(tvOS)
+            return r - 20
+        #endif
     }
     
     // MARK: - Setup
@@ -898,6 +917,7 @@ class SpaceScene: SKScene {
     }
 }
 
+#if os(tvOS)
 extension SpaceScene: PressHandler {
     
     // MARK: - Presses
@@ -944,6 +964,7 @@ extension SpaceScene: PressHandler {
         gamePaused = !gamePaused
     }
 }
+#endif
 
 // MARK: UIResponder
 extension SpaceScene {

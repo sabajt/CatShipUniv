@@ -23,14 +23,14 @@ class GameViewController: UIViewController {
     func startScene() {
         guard
             let view = self.view as? SKView,
-            let scene = SKScene(fileNamed: "GameScene") as? GameScene else {
+            let scene = SKScene(fileNamed: "SpaceScene") as? SpaceScene else {
                 return
         }
         
         gameScene = scene
         //scene.resetDelegate = self
         //pressHandler = gameScene as? PressHandler
-        scene.scaleMode = .aspectFill
+        scene.scaleMode = .resizeFill
         let transition = SKTransition.fade(withDuration: 1.0)
         view.presentScene(scene, transition: transition)
     }
