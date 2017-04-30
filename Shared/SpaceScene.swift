@@ -34,7 +34,7 @@ class SpaceScene: SKScene {
     
     // MARK: - Vars
     var lastUpdateTime: TimeInterval = 0
-    var pressBuffer = Array<UIPress>()
+    var lastTouchTime: Date?
     var gamePaused: Bool = false
     var pauseIndexSelected: Int = 0
     var isSelecting = false
@@ -61,34 +61,6 @@ class SpaceScene: SKScene {
     var transitionToMap: CellMaps?
     var fireballFlash = false
     var speedAudioPlayer: AVAudioPlayer?
-    
-    lazy var speedLabel: SKLabelNode = {
-        let label = SKLabelNode(text: "")
-        
-        #if os(tvOS)
-            label.fontSize = 80.0
-        #endif
-        
-        #if os(iOS)
-            label.fontSize = 30.0
-        #endif
-        
-        label.fontColor = UIColor.white
-        return label
-    }()
-    
-    func renderSpeed() {
-        speedLabel.text = "\(self.mps)  MPS"
-        guard let cellSize = cellSize() else { return }
-        let x = (-cellSize.width * 0.48) + (speedLabel.frame.size.width * 0.5)
-        #if os(tvOS)
-            let y = (cellSize.height * 0.40) - (speedLabel.frame.size.height * 0.5)
-        #endif
-        #if os(iOS)
-            let y = (cellSize.height * 0.5) - (speedLabel.frame.size.height * 0.5 + 15)
-        #endif
-        speedLabel.position = CGPoint(x: x, y: y)
-    }
     
     enum CellMaps: String {
         case cheeseburger
@@ -192,6 +164,19 @@ class SpaceScene: SKScene {
     
     // MARK: - UI Components
     
+    func standardLabel(text: String) -> SKLabelNode {
+        let label = SKLabelNode(text: text)
+        #if os(tvOS)
+            label.fontSize = 80
+            label.fontColor = UIColor.white
+        #endif
+        #if os(iOS)
+            label.fontSize = 30
+            label.fontColor = UIColor.white
+        #endif
+        return label
+    }
+    
     lazy var blimp: SKSpriteNode = { [weak self] in
         let sprite = SKSpriteNode(imageNamed: "bubblecat")
         sprite.zPosition = CGFloat.greatestFiniteMagnitude
@@ -199,9 +184,8 @@ class SpaceScene: SKScene {
         if let weakSelf = self {
             sprite.addChild(weakSelf.fireball)
         }
-        
         return sprite
-        }()
+    }()
     
     lazy var fireball: SKSpriteNode = { [weak self] in
         let s = SKSpriteNode(imageNamed: "fireball")
@@ -211,21 +195,36 @@ class SpaceScene: SKScene {
         s.alpha = 0.0
         s.position = s.position.add(point: CGPoint(x: -80, y: 0))
         return s
-        }()
+    }()
+    
+    lazy var speedLabel: SKLabelNode = {
+        let label = self.standardLabel(text: "")
+        label.fontColor = UIColor.white
+        return label
+    }()
+    
+    func renderSpeed() {
+        speedLabel.text = "\(self.mps)  MPS"
+        guard let cellSize = cellSize() else { return }
+        let x = (-cellSize.width * 0.48) + (speedLabel.frame.size.width * 0.5)
+        #if os(tvOS)
+            let y = (cellSize.height * 0.40) - (speedLabel.frame.size.height * 0.5)
+        #endif
+        #if os(iOS)
+            let y = (cellSize.height * 0.5) - (speedLabel.frame.size.height * 0.5 + 15)
+        #endif
+        speedLabel.position = CGPoint(x: x, y: y)
+    }
     
     lazy var resumeLabel: SKLabelNode = {
-        let label = SKLabelNode(text: "R E S U M E")
-        label.fontSize = 80
-        label.fontColor = UIColor.white
+        let label = self.standardLabel(text: "R E S U M E")
         label.position = label.position.add(point: CGPoint(x: 0, y: self.speedLabel.position.y - 100))
         self.addChild(label)
         return label
     }()
     
     lazy var restartLabel: SKLabelNode = {
-        let label = SKLabelNode(text: "R E S T A R T")
-        label.fontSize = 80
-        label.fontColor = UIColor.white
+        let label = self.standardLabel(text: "R E S T A R T")
         label.position = label.position.add(point: CGPoint(x: 0, y: self.resumeLabel.position.y - 100))
         self.addChild(label)
         return label
@@ -884,7 +883,15 @@ class SpaceScene: SKScene {
     
     // MARK: - Touches
     
-    func touchBegan(touch: UITouch) { }
+    func touchBegan(touch: UITouch) {
+        #if os(iOS)
+            let now = Date()
+            if let last = lastTouchTime, now.timeIntervalSince(last) < 0.33 {
+                self.handlePress()
+            }
+            lastTouchTime = now
+        #endif
+    }
     
     func touchMoved(touch: UITouch) {
         let location = touch.location(in: self)
@@ -900,7 +907,11 @@ class SpaceScene: SKScene {
         blimpSpeed = normalizedSpeed(radians: blimp.zRotation).multiply(factor: accelaration)
     }
     
-    func touchEnded(touch: UITouch) { }
+    func touchEnded(touch: UITouch) {
+        #if os(iOS)
+            handlePressEnded()
+        #endif
+    }
     
     func pauseTouchMoved(deltaLocation: CGPoint) {
         if deltaLocation.y < -0.3 {
@@ -917,12 +928,10 @@ class SpaceScene: SKScene {
     }
 }
 
-#if os(tvOS)
-extension SpaceScene: PressHandler {
+extension SpaceScene {
+    // MARK: - Universal Press Handlers
     
-    // MARK: - Presses
-    
-    func selectBegan(press: UIPress) {
+    func handlePress() {
         if gamePaused {
             if pauseIndexSelected == 0 {
                 pauseEnd()
@@ -949,8 +958,22 @@ extension SpaceScene: PressHandler {
         }
     }
     
-    func selectEnded(press: UIPress) {
+    func handlePressEnded() {
         isDeflating = false
+    }
+}
+
+#if os(tvOS)
+extension SpaceScene: PressHandler {
+    
+    // MARK: - PressHandler Delegate
+    
+    func selectBegan(press: UIPress) {
+        handlePress()
+    }
+    
+    func selectEnded(press: UIPress) {
+        handlePressEnded()
     }
     
     func selectChanged(press: UIPress) {}
@@ -970,9 +993,9 @@ extension SpaceScene: PressHandler {
 extension SpaceScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches {
-            touchBegan(touch: t)
-        }
+        // Only process first
+        guard let t = touches.first else { return }
+        touchBegan(touch: t)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
